@@ -40,15 +40,46 @@ router.get('/courses', (req, res) => {
 
     request(options, (error, response, body) => {
         if (error) {
-            res.status(402).send("Session Expired")
+            res.status(401).send({ message: "Session Expired" })
         } else {
             const dom = new JSDOM(body);
             const list = dom.window.document.querySelectorAll('*[id^="course-"]')
+            var courses = []
+
             for (var i = 0; i < list.length; i++) {
-                console.log(dom2json.toJSON(list[i]))
-                console.log('\n')
+                var json = dom2json.toJSON(list[i])
+                var assingments = list[i].querySelectorAll('*[class="assign overview"]')
+                var objects = []
+
+                for (var j = 0; j < assingments.length; j++) {
+                    var temp = Object()
+
+                    var assignment_details = dom2json.toJSON(assingments[j])
+                    var assignment_node = assignment_details.childNodes[0].childNodes[1]
+                    var due_date = assignment_details.childNodes[1].childNodes[0]
+
+                    temp['title'] = assignment_node.childNodes[0].nodeValue
+                    temp[assignment_node.attributes[1][0]] = assignment_node.attributes[1][1]
+                    temp['due_date'] = due_date.nodeValue.replace("Due date: ", "")
+                    objects.push(temp)
+                }
+
+                var object = new Object()
+
+                if (json['childNodes'].length > 1) {
+                    var title_node = json.childNodes[0].childNodes[0].childNodes[0]
+                    object[json.attributes[0][0]] = json.attributes[0][1]
+                    object[title_node.attributes[0][0]] = title_node.attributes[0][1]
+                    object[title_node.attributes[1][0]] = title_node.attributes[1][1]
+
+                    if (assingments.length > 0) {
+                        object['assignments'] = objects
+                    }
+                    courses.push(object)
+                }
             }
-            res.send(body)
+
+            res.status(200).send(courses)
         }
     })
 })
