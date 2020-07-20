@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Alamofire
 
 extension Dictionary {
     func percentEncoded() -> Data? {
@@ -71,6 +72,7 @@ class FetchData:ObservableObject{
         }.resume()
     }
     
+    /*
     func fetchCourses(userData:UserData){
         let url = URL(string: baseAddress+"/courses")!
         var request = URLRequest(url: url)
@@ -87,5 +89,24 @@ class FetchData:ObservableObject{
                 }
             }
         }.resume()
+    }*/
+    
+    
+    func fetchCourses(userData:UserData){
+        let headers : HTTPHeaders = ["sesskey": userData.sesskey, "Content-Type": "application/json"]
+        
+        AF.request(baseAddress+"/courses",method: .get, headers: headers).response {
+            response in
+            guard let data = response.data else { return }
+            do {
+                let decoder = JSONDecoder()
+                let decodedResponse = try decoder.decode(Courses.self, from: data)
+                DispatchQueue.main.async {
+                    userData.courses = decodedResponse.courses
+                }
+            } catch let error {
+                print(error)
+            }
+        }
     }
 }

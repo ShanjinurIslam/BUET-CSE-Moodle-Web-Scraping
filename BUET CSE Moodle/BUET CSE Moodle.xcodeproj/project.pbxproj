@@ -21,9 +21,11 @@
 		22726B5724C4BFB8001499B8 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B5624C4BFB8001499B8 /* FetchData.swift */; };
 		22726B5A24C4CDF4001499B8 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B5924C4CDF4001499B8 /* ActivityIndicator.swift */; };
 		22726B5C24C4DE27001499B8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B5B24C4DE27001499B8 /* HomeView.swift */; };
+		8DAF12C3286705C539DA0126 /* Pods_BUET_CSE_Moodle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B0A742A4470508AE480FB5D /* Pods_BUET_CSE_Moodle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1501A612F418317189219684 /* Pods-BUET CSE Moodle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BUET CSE Moodle.debug.xcconfig"; path = "Target Support Files/Pods-BUET CSE Moodle/Pods-BUET CSE Moodle.debug.xcconfig"; sourceTree = "<group>"; };
 		2262CB6924C5E5AA00286609 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		2262CB6B24C5F47300286609 /* CourseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetails.swift; sourceTree = "<group>"; };
 		22726B3524C4A80E001499B8 /* BUET CSE Moodle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BUET CSE Moodle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +42,8 @@
 		22726B5624C4BFB8001499B8 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
 		22726B5924C4CDF4001499B8 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		22726B5B24C4DE27001499B8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		628068A5DDB80C14400283CB /* Pods-BUET CSE Moodle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BUET CSE Moodle.release.xcconfig"; path = "Target Support Files/Pods-BUET CSE Moodle/Pods-BUET CSE Moodle.release.xcconfig"; sourceTree = "<group>"; };
+		9B0A742A4470508AE480FB5D /* Pods_BUET_CSE_Moodle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BUET_CSE_Moodle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DAF12C3286705C539DA0126 /* Pods_BUET_CSE_Moodle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +63,8 @@
 			children = (
 				22726B3724C4A80E001499B8 /* BUET CSE Moodle */,
 				22726B3624C4A80E001499B8 /* Products */,
+				608F1CE15FD5DFBBD4ECA79F /* Pods */,
+				A6AE04335AB3C2BDE0190EA4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +122,24 @@
 			path = "Supporting Views";
 			sourceTree = "<group>";
 		};
+		608F1CE15FD5DFBBD4ECA79F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1501A612F418317189219684 /* Pods-BUET CSE Moodle.debug.xcconfig */,
+				628068A5DDB80C14400283CB /* Pods-BUET CSE Moodle.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A6AE04335AB3C2BDE0190EA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B0A742A4470508AE480FB5D /* Pods_BUET_CSE_Moodle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22726B4924C4A810001499B8 /* Build configuration list for PBXNativeTarget "BUET CSE Moodle" */;
 			buildPhases = (
+				4616C2B6A4A93CC25CEDE455 /* [CP] Check Pods Manifest.lock */,
 				22726B3124C4A80E001499B8 /* Sources */,
 				22726B3224C4A80E001499B8 /* Frameworks */,
 				22726B3324C4A80E001499B8 /* Resources */,
+				6255069DAD89DEA4CD4F258C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,6 +207,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4616C2B6A4A93CC25CEDE455 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BUET CSE Moodle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6255069DAD89DEA4CD4F258C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BUET CSE Moodle/Pods-BUET CSE Moodle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BUET CSE Moodle/Pods-BUET CSE Moodle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BUET CSE Moodle/Pods-BUET CSE Moodle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		22726B3124C4A80E001499B8 /* Sources */ = {
@@ -330,6 +399,7 @@
 		};
 		22726B4A24C4A810001499B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1501A612F418317189219684 /* Pods-BUET CSE Moodle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -350,6 +420,7 @@
 		};
 		22726B4B24C4A810001499B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 628068A5DDB80C14400283CB /* Pods-BUET CSE Moodle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

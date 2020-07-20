@@ -1,0 +1,6 @@
+framework module Pods_BUET_CSE_Moodle {
+  umbrella header "Pods-BUET CSE Moodle-umbrella.h"
+
+  export *
+  module * { export * }
+}
