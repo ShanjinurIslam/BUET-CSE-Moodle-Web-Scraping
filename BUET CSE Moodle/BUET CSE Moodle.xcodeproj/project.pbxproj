@@ -1,0 +1,395 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2262CB6A24C5E5AA00286609 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262CB6924C5E5AA00286609 /* Course.swift */; };
+		2262CB6C24C5F47400286609 /* CourseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262CB6B24C5F47300286609 /* CourseDetails.swift */; };
+		22726B3924C4A80E001499B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B3824C4A80E001499B8 /* AppDelegate.swift */; };
+		22726B3B24C4A80E001499B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B3A24C4A80E001499B8 /* SceneDelegate.swift */; };
+		22726B3F24C4A810001499B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22726B3E24C4A810001499B8 /* Assets.xcassets */; };
+		22726B4224C4A810001499B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22726B4124C4A810001499B8 /* Preview Assets.xcassets */; };
+		22726B4524C4A810001499B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22726B4324C4A810001499B8 /* LaunchScreen.storyboard */; };
+		22726B4D24C4A8BD001499B8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B4C24C4A8BD001499B8 /* LoginView.swift */; };
+		22726B4F24C4B96B001499B8 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B4E24C4B96B001499B8 /* KeyboardResponder.swift */; };
+		22726B5324C4BD57001499B8 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B5224C4BD57001499B8 /* Session.swift */; };
+		22726B5524C4BE14001499B8 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B5424C4BE14001499B8 /* UserData.swift */; };
+		22726B5724C4BFB8001499B8 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B5624C4BFB8001499B8 /* FetchData.swift */; };
+		22726B5A24C4CDF4001499B8 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B5924C4CDF4001499B8 /* ActivityIndicator.swift */; };
+		22726B5C24C4DE27001499B8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B5B24C4DE27001499B8 /* HomeView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2262CB6924C5E5AA00286609 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		2262CB6B24C5F47300286609 /* CourseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetails.swift; sourceTree = "<group>"; };
+		22726B3524C4A80E001499B8 /* BUET CSE Moodle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BUET CSE Moodle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22726B3824C4A80E001499B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		22726B3A24C4A80E001499B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		22726B3E24C4A810001499B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22726B4124C4A810001499B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		22726B4424C4A810001499B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		22726B4624C4A810001499B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22726B4C24C4A8BD001499B8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		22726B4E24C4B96B001499B8 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
+		22726B5224C4BD57001499B8 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		22726B5424C4BE14001499B8 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		22726B5624C4BFB8001499B8 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
+		22726B5924C4CDF4001499B8 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		22726B5B24C4DE27001499B8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22726B3224C4A80E001499B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22726B2C24C4A80E001499B8 = {
+			isa = PBXGroup;
+			children = (
+				22726B3724C4A80E001499B8 /* BUET CSE Moodle */,
+				22726B3624C4A80E001499B8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22726B3624C4A80E001499B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22726B3524C4A80E001499B8 /* BUET CSE Moodle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22726B3724C4A80E001499B8 /* BUET CSE Moodle */ = {
+			isa = PBXGroup;
+			children = (
+				22726B5824C4CDDE001499B8 /* Supporting Views */,
+				22726B5124C4BD43001499B8 /* Models */,
+				22726B3824C4A80E001499B8 /* AppDelegate.swift */,
+				22726B3A24C4A80E001499B8 /* SceneDelegate.swift */,
+				22726B3E24C4A810001499B8 /* Assets.xcassets */,
+				22726B4324C4A810001499B8 /* LaunchScreen.storyboard */,
+				22726B4624C4A810001499B8 /* Info.plist */,
+				22726B4024C4A810001499B8 /* Preview Content */,
+				22726B4C24C4A8BD001499B8 /* LoginView.swift */,
+				22726B4E24C4B96B001499B8 /* KeyboardResponder.swift */,
+				2262CB6B24C5F47300286609 /* CourseDetails.swift */,
+				22726B5B24C4DE27001499B8 /* HomeView.swift */,
+			);
+			path = "BUET CSE Moodle";
+			sourceTree = "<group>";
+		};
+		22726B4024C4A810001499B8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				22726B4124C4A810001499B8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		22726B5124C4BD43001499B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				22726B5224C4BD57001499B8 /* Session.swift */,
+				22726B5424C4BE14001499B8 /* UserData.swift */,
+				22726B5624C4BFB8001499B8 /* FetchData.swift */,
+				2262CB6924C5E5AA00286609 /* Course.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		22726B5824C4CDDE001499B8 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				22726B5924C4CDF4001499B8 /* ActivityIndicator.swift */,
+			);
+			path = "Supporting Views";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22726B3424C4A80E001499B8 /* BUET CSE Moodle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22726B4924C4A810001499B8 /* Build configuration list for PBXNativeTarget "BUET CSE Moodle" */;
+			buildPhases = (
+				22726B3124C4A80E001499B8 /* Sources */,
+				22726B3224C4A80E001499B8 /* Frameworks */,
+				22726B3324C4A80E001499B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BUET CSE Moodle";
+			productName = "BUET CSE Moodle";
+			productReference = 22726B3524C4A80E001499B8 /* BUET CSE Moodle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22726B2D24C4A80E001499B8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Shanjinur Islam";
+				TargetAttributes = {
+					22726B3424C4A80E001499B8 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = 22726B3024C4A80E001499B8 /* Build configuration list for PBXProject "BUET CSE Moodle" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22726B2C24C4A80E001499B8;
+			productRefGroup = 22726B3624C4A80E001499B8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22726B3424C4A80E001499B8 /* BUET CSE Moodle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22726B3324C4A80E001499B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22726B4524C4A810001499B8 /* LaunchScreen.storyboard in Resources */,
+				22726B4224C4A810001499B8 /* Preview Assets.xcassets in Resources */,
+				22726B3F24C4A810001499B8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22726B3124C4A80E001499B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22726B5C24C4DE27001499B8 /* HomeView.swift in Sources */,
+				2262CB6C24C5F47400286609 /* CourseDetails.swift in Sources */,
+				22726B5524C4BE14001499B8 /* UserData.swift in Sources */,
+				2262CB6A24C5E5AA00286609 /* Course.swift in Sources */,
+				22726B5724C4BFB8001499B8 /* FetchData.swift in Sources */,
+				22726B3924C4A80E001499B8 /* AppDelegate.swift in Sources */,
+				22726B3B24C4A80E001499B8 /* SceneDelegate.swift in Sources */,
+				22726B5A24C4CDF4001499B8 /* ActivityIndicator.swift in Sources */,
+				22726B4D24C4A8BD001499B8 /* LoginView.swift in Sources */,
+				22726B5324C4BD57001499B8 /* Session.swift in Sources */,
+				22726B4F24C4B96B001499B8 /* KeyboardResponder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		22726B4324C4A810001499B8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22726B4424C4A810001499B8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		22726B4724C4A810001499B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		22726B4824C4A810001499B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		22726B4A24C4A810001499B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"BUET CSE Moodle/Preview Content\"";
+				DEVELOPMENT_TEAM = 95TGYLRZP6;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "BUET CSE Moodle/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shanjinur.BUET-CSE-Moodle";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		22726B4B24C4A810001499B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"BUET CSE Moodle/Preview Content\"";
+				DEVELOPMENT_TEAM = 95TGYLRZP6;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "BUET CSE Moodle/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shanjinur.BUET-CSE-Moodle";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22726B3024C4A80E001499B8 /* Build configuration list for PBXProject "BUET CSE Moodle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22726B4724C4A810001499B8 /* Debug */,
+				22726B4824C4A810001499B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22726B4924C4A810001499B8 /* Build configuration list for PBXNativeTarget "BUET CSE Moodle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22726B4A24C4A810001499B8 /* Debug */,
+				22726B4B24C4A810001499B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22726B2D24C4A80E001499B8 /* Project object */;
+}

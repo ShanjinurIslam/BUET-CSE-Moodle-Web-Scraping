@@ -6,7 +6,7 @@ const dom2json = require('dom-to-json')
 const { JSDOM } = jsdom;
 
 router.post('/login', (req, res) => {
-
+    /*
     const options = {
         url: 'https://cse.buet.ac.bd/moodle/login/index.php',
         form: {
@@ -20,15 +20,16 @@ router.post('/login', (req, res) => {
             res.status(402).send()
         } else {
             const sesskey = cookie.parse(response.headers['set-cookie'][1])
-            return res.status(200).send(sesskey)
+            console.log(sesskey)
+            return res.status(200).send({ sesskey: sesskey['MoodleSession'] })
         }
-    })
+    })*/
+
+    res.send({ sesskey: "ar4qvh9u8d38i2v9m67sjmkn41" })
 })
 
 router.get('/courses', (req, res) => {
-
-    var cookie = request.cookie('MoodleSession=' + req.headers['sesskey'])
-
+    var cookie = request.cookie('MoodleSession=ar4qvh9u8d38i2v9m67sjmkn41') //+ req.headers['sesskey'])
 
     const options = {
         url: 'https://cse.buet.ac.bd/moodle/my/index.php?mynumber=-2',
@@ -37,6 +38,7 @@ router.get('/courses', (req, res) => {
             'Cookie': cookie
         }
     };
+
 
     request(options, (error, response, body) => {
         if (error) {
@@ -68,18 +70,16 @@ router.get('/courses', (req, res) => {
 
                 if (json['childNodes'].length > 1) {
                     var title_node = json.childNodes[0].childNodes[0].childNodes[0]
-                    object[json.attributes[0][0]] = json.attributes[0][1]
+                    object[json.attributes[0][0]] = parseInt(json.attributes[0][1].replace("course-", ""))
                     object[title_node.attributes[0][0]] = title_node.attributes[0][1]
+                    object['course_code'] = title_node.attributes[0][1].split(' ')[2].substr(0, 6)
                     object[title_node.attributes[1][0]] = title_node.attributes[1][1]
-
-                    if (assingments.length > 0) {
-                        object['assignments'] = objects
-                    }
+                    object['assignments'] = objects
                     courses.push(object)
                 }
             }
 
-            res.status(200).send(courses)
+            res.status(200).send({ courses })
         }
     })
 })
