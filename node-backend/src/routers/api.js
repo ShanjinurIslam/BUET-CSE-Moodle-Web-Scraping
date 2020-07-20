@@ -6,7 +6,7 @@ const dom2json = require('dom-to-json')
 const { JSDOM } = jsdom;
 
 router.post('/login', (req, res) => {
-    /*
+
     const options = {
         url: 'https://cse.buet.ac.bd/moodle/login/index.php',
         form: {
@@ -20,16 +20,13 @@ router.post('/login', (req, res) => {
             res.status(402).send()
         } else {
             const sesskey = cookie.parse(response.headers['set-cookie'][1])
-            console.log(sesskey)
             return res.status(200).send({ sesskey: sesskey['MoodleSession'] })
         }
-    })*/
-
-    res.send({ sesskey: "ar4qvh9u8d38i2v9m67sjmkn41" })
+    })
 })
 
 router.get('/courses', (req, res) => {
-    var cookie = request.cookie('MoodleSession=ar4qvh9u8d38i2v9m67sjmkn41') //+ req.headers['sesskey'])
+    var cookie = request.cookie('MoodleSession=' + req.headers['sesskey']) //+ req.headers['sesskey'])
 
     const options = {
         url: 'https://cse.buet.ac.bd/moodle/my/index.php?mynumber=-2',
@@ -83,5 +80,40 @@ router.get('/courses', (req, res) => {
         }
     })
 })
+
+
+router.post("/logout", (req, res) => {
+    var cookie = request.cookie('MoodleSession=' + req.headers['sesskey']) //+ req.headers['sesskey'])
+
+    const options = {
+        url: 'https://cse.buet.ac.bd/moodle/login/logout.php',
+        'method': "POST",
+        headers: {
+            'Cookie': cookie
+        }
+    };
+
+    request(options, (error, response, body) => {
+        const dom = new JSDOM(body);
+
+        const logoutkey = dom2json.toJSON(dom.window.document.forms[0]).childNodes[0].childNodes[1].attributes[2][1]
+
+        const options = {
+            url: 'https://cse.buet.ac.bd/moodle/login/logout.php?sesskey=' + logoutkey,
+            'method': "POST",
+            headers: {
+                'Cookie': cookie
+            }
+        };
+        request(options, (error, response, body) => {
+            if (error) {
+                res.status(402).send()
+            } else {
+                return res.status(200).send()
+            }
+        })
+    })
+})
+
 
 module.exports = router
