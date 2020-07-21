@@ -21,6 +21,7 @@ router.post('/login', (req, res) => {
             res.status(402).send()
         } else {
             const sesskey = cookie.parse(response.headers['set-cookie'][1])
+            console.log(sesskey)
             return res.status(200).send({ sesskey: sesskey['MoodleSession'] })
         }
     })
@@ -137,8 +138,6 @@ router.get('/courses/:id', (req, res) => {
 
         object['weeks'] = arr
 
-        console.log(object)
-
         return res.send(object)
     })
 })
@@ -188,6 +187,7 @@ router.get("/logout", (req, res) => {
             if (error) {
                 res.status(402).send()
             } else {
+                console.log(response.statusCode)
                 return res.status(200).send()
             }
         })
