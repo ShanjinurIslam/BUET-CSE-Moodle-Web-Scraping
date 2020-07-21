@@ -2,7 +2,8 @@ const router = require('express').Router()
 const request = require('request')
 const cookie = require('cookie')
 const jsdom = require("jsdom");
-const dom2json = require('dom-to-json')
+const dom2json = require('dom-to-json');
+const { response } = require('express');
 const { JSDOM } = jsdom;
 
 router.post('/login', (req, res) => {
@@ -81,8 +82,86 @@ router.get('/courses', (req, res) => {
     })
 })
 
+router.get('/courses/:id', (req, res) => {
+    var cookie = request.cookie('MoodleSession=' + req.headers['sesskey'])
 
-router.post("/logout", (req, res) => {
+    const options = {
+        url: 'https://cse.buet.ac.bd/moodle/course/view.php?id=' + req.params.id,
+        'method': "GET",
+        headers: {
+            'Cookie': cookie
+        }
+    }
+
+    request(options, (error, response, body) => {
+        const dom = new JSDOM(body)
+
+        const sections = dom.window.document.querySelectorAll('*[id^="section-"]')
+
+        var object = new Object()
+
+        var arr = []
+
+        for (var i = 1; i < sections.length; i++) {
+
+            const header = sections[i].querySelectorAll('[class="sectionname"]')[0]
+            if (header == undefined) {
+                continue
+            }
+
+            var temp = new Object()
+            temp['week_name'] = header.innerHTML
+            temp['resourses'] = []
+
+            const activities = sections[i].querySelectorAll('[class="activityinstance"]')
+
+            if (activities.length > 0) {
+                for (var j = 0; j < activities.length; j++) {
+                    var instance = new Object()
+                    if (activities[j] == undefined) {
+                        continue
+                    } else {
+                        const name = activities[j].querySelectorAll('[class="instancename"]')[0].innerHTML.split('<')[0]
+                        const json = dom2json.toJSON(activities[j].querySelectorAll('a')[0])
+
+                        instance['name'] = name
+                        instance['href'] = json['attributes'][2][1]
+                        instance['type'] = instance['href'].split("/")[5]
+                        temp['resourses'].push(instance)
+                    }
+                }
+            }
+
+            arr.push(temp)
+        }
+
+        object['weeks'] = arr
+
+        console.log(object)
+
+        return res.send(object)
+    })
+})
+
+router.get('/resource', (req, res) => {
+    var cookie = request.cookie('MoodleSession=' + req.headers['sesskey'])
+
+    const options = {
+        url: req.headers['url'],
+        'method': "GET",
+        headers: {
+            'Cookie': cookie
+        }
+    };
+
+    request(options, (error, response, body) => {
+        res.headers = response.headers
+        res.send(body)
+    })
+
+})
+
+router.get("/logout", (req, res) => {
     var cookie = request.cookie('MoodleSession=' + req.headers['sesskey']) //+ req.headers['sesskey'])
 
     const options = {
