@@ -5,6 +5,7 @@ const jsdom = require("jsdom");
 const dom2json = require('dom-to-json');
 const { response } = require('express');
 const { JSDOM } = jsdom;
+const fs = require('fs')
 
 router.post('/login', (req, res) => {
 
@@ -154,8 +155,9 @@ router.get('/resource', (req, res) => {
     };
 
     request(options, (error, response, body) => {
-        res.headers = response.headers
-        res.send(body)
+        console.log(response.headers)
+        response.pipe(fs.createWriteStream("files/what." + response.headers['content-type'].split('/')[1]));
+        res.send(response.statusCode)
     })
 
 })
