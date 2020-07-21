@@ -144,6 +144,7 @@ router.get('/courses/:id', (req, res) => {
 })
 
 router.get('/resource', (req, res) => {
+    console.log(req.headers)
     var cookie = request.cookie('MoodleSession=' + req.headers['sesskey'])
 
     const options = {
@@ -155,9 +156,8 @@ router.get('/resource', (req, res) => {
     };
 
     request(options, (error, response, body) => {
-        console.log(response.headers)
-        response.pipe(fs.createWriteStream("files/what." + response.headers['content-type'].split('/')[1]));
-        res.send(response.statusCode)
+        // first i have to download the file and then rest of the works
+        res.status(200).send({ url: response.request.uri['href'] })
     })
 
 })

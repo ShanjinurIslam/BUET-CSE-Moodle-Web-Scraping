@@ -1,5 +1,5 @@
 //
-//  QuickLookController.swift
+//  ContentURL.swift
 //  BUET CSE Moodle
 //
 //  Created by Shanjinur Islam on 7/22/20.
