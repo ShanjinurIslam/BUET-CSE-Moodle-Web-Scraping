@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var userData:UserData
     @ObservedObject var fetchData:FetchData = FetchData()
     
@@ -17,6 +18,7 @@ struct HomeView: View {
     }
     
     func onLoad(){
+        self.userData.weeks.removeAll()
         fetchData.fetchCourses(userData: userData)
     }
     
@@ -29,7 +31,18 @@ struct HomeView: View {
                 }
             }
             
-        }.onAppear(perform: onLoad).navigationBarBackButtonHidden(true).navigationBarTitle(Text("Courses"))
+            }.onAppear(perform: onLoad)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarTitle(Text("Courses"))
+            .navigationBarItems(trailing:
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                    self.fetchData.logout(userData: self.userData)
+                }){
+                    Text("Sign Out").font(.system(size: 15))
+                }
+                
+            )
     }
 }
 

@@ -12,5 +12,6 @@ import Combine
 class UserData:ObservableObject{
     @Published var sesskey:String = ""
     @Published var courses:[Course] = [Course]()
+    @Published var weeks:[Week] = [Week]()
 }
 

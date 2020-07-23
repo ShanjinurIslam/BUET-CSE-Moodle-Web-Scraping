@@ -144,7 +144,6 @@ router.get('/courses/:id', (req, res) => {
 })
 
 router.get('/resource', (req, res) => {
-    console.log(req.headers)
     var cookie = request.cookie('MoodleSession=' + req.headers['sesskey'])
 
     const options = {
@@ -155,11 +154,39 @@ router.get('/resource', (req, res) => {
         }
     };
 
+    /*
     request(options, (error, response, body) => {
-        // first i have to download the file and then rest of the works
-        res.status(200).send({ url: response.request.uri['href'] })
-    })
+        var fileName = response.headers['content-disposition'].split('=')[1].replace("\"", "")
+        fileName = fileName.substr(0, (fileName.length) - 1)
 
+        fs.access(fileName, fs.F_OK, (err) => {
+            if (err) {
+                fs.writeFileSync(fileName, body, 'binary', function(err) {
+                    if (err) {
+                        return console.error(err);
+                    }
+                })
+                return res.status(200).download(fileName)
+            }
+            return res.status(200).download(fileName)
+        })
+    })*/
+
+    request(options).on("response", (response) => {
+        var fileName = response.headers['content-disposition'].split('=')[1].replace("\"", "")
+        fileName = fileName.substr(0, (fileName.length) - 1)
+
+        fs.access(fileName, fs.F_OK, (err) => {
+            if (err) {
+                var fws = fs.createWriteStream(fileName);
+                response.pipe(fws)
+            }
+        })
+
+        response.on('end', function() {
+            return res.status(200).download(fileName)
+        });
+    })
 })
 
 router.get("/logout", (req, res) => {

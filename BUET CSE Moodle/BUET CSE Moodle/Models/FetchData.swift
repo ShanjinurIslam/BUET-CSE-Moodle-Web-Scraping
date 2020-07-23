@@ -37,9 +37,12 @@ class FetchData:ObservableObject{
     private var sesskey:String
     @Published var shouldAnimate:Bool = false
     @Published var loggedIn:Bool = false
+    @Published var loggedOut:Bool = false
+    @Published var loading:Bool = false
+    @Published var url:String = ""
     
     init() {
-        baseAddress = "http://192.168.0.101:8080"
+        baseAddress = "http://192.168.0.103:8080"
         sesskey = ""
     }
     
@@ -64,6 +67,7 @@ class FetchData:ObservableObject{
                     DispatchQueue.main.async {
                         self.sesskey = String(decodedResponse.sesskey)
                         userData.sesskey = self.sesskey
+                        self.shouldAnimate = false
                         self.loggedIn = true
                     }
                     return
@@ -72,24 +76,17 @@ class FetchData:ObservableObject{
         }.resume()
     }
     
-    /*
-    func fetchCourses(userData:UserData){
-        let url = URL(string: baseAddress+"/courses")!
-        var request = URLRequest(url: url)
+    func logout(userData:UserData){
+        let headers : HTTPHeaders = ["sesskey": userData.sesskey, "Content-Type": "application/json"]
         
-        request.httpMethod = "GET"
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
-                if let decodedResponse = try? JSONDecoder().decode(Courses.self, from: data) {
-                    DispatchQueue.main.async {
-                        userData.courses = decodedResponse.courses
-                    }
-                    return
-                }
+        self.loggedOut = false
+        AF.request(baseAddress+"/logout",method: .get, headers: headers).response {
+            response in
+            DispatchQueue.main.async {
+                self.loggedOut = true
             }
-        }.resume()
-    }*/
+        }
+    }
     
     
     func fetchCourses(userData:UserData){
@@ -108,5 +105,63 @@ class FetchData:ObservableObject{
                 print(error)
             }
         }
+    }
+    
+    func fetchWeeks(userData:UserData,courseID:String){
+        let headers : HTTPHeaders = ["sesskey": userData.sesskey, "Content-Type": "application/json"]
+        
+        AF.request(baseAddress+"/courses/"+courseID,method: .get, headers: headers).response {
+            response in
+            guard let data = response.data else { return }
+            do {
+                let decoder = JSONDecoder()
+                let decodedResponse = try decoder.decode(Weeks.self, from: data)
+                DispatchQueue.main.async {
+                    userData.weeks = decodedResponse.weeks
+                }
+            } catch let error {
+                print(error)
+            }
+        }
+    }
+    
+    func fetchResource(userData:UserData,url:String){
+        self.url = ""
+        self.loading = true
+        
+        let headers : HTTPHeaders = ["sesskey": userData.sesskey, "Content-Type": "application/json", "url":url]
+        
+        /*
+        
+        AF.request(baseAddress+"/resource" ,method: .get, headers: headers).response {
+            response in
+            guard let data = response.data else { return }
+            do {
+                let decoder = JSONDecoder()
+                let decodedResponse = try decoder.decode(ContentURL.self, from: data)
+                DispatchQueue.main.async {
+                    print(decodedResponse)
+                    self.url = "sample.pdf"
+                    self.loading = false
+                }
+            } catch let error {
+                print(error)
+            }
+        }*/
+        var localPath:URL!
+        let urlString = baseAddress+"/resource"
+        AF.download(urlString, headers:headers,to:{ (temporaryURL, response) in
+                let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let pathComponent = response.suggestedFilename
+
+                localPath = directoryURL.appendingPathComponent(pathComponent!)
+                return  (localPath, [.removePreviousFile, .createIntermediateDirectories])
+            }).response { response in
+                print(localPath!.absoluteString)
+                DispatchQueue.main.async {
+                    self.url = localPath.absoluteString
+                    self.loading = false
+                }
+            }
     }
 }

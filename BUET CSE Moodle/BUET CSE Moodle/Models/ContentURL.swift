@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct ContentURL:Codable{
+    var url:String
+}

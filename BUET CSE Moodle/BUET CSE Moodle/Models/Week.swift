@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+struct Resource:Codable {
+    var name:String
+    var href:String
+    var type:String
+}
+
+struct Week:Codable {
+    var week_name:String
+    var resourses:[Resource]
+}
+
+struct Weeks:Codable{
+    var weeks:[Week]
+}

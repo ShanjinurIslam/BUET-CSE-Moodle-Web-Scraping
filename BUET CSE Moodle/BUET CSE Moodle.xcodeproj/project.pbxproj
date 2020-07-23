@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		225094C524C7690300AB5325 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225094C424C7690300AB5325 /* Week.swift */; };
+		225094C724C76CB400AB5325 /* WeekDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225094C624C76CB400AB5325 /* WeekDetails.swift */; };
+		225094CD24C7946E00AB5325 /* ContentURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225094CC24C7946E00AB5325 /* ContentURL.swift */; };
 		2262CB6A24C5E5AA00286609 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262CB6924C5E5AA00286609 /* Course.swift */; };
 		2262CB6C24C5F47400286609 /* CourseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262CB6B24C5F47300286609 /* CourseDetails.swift */; };
 		22726B3924C4A80E001499B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B3824C4A80E001499B8 /* AppDelegate.swift */; };
@@ -21,11 +24,16 @@
 		22726B5724C4BFB8001499B8 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B5624C4BFB8001499B8 /* FetchData.swift */; };
 		22726B5A24C4CDF4001499B8 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B5924C4CDF4001499B8 /* ActivityIndicator.swift */; };
 		22726B5C24C4DE27001499B8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22726B5B24C4DE27001499B8 /* HomeView.swift */; };
+		22DE60BB24C9D42A00EDEA70 /* QuickPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DE60BA24C9D42A00EDEA70 /* QuickPreviewController.swift */; };
+		22DE60C424C9DB0500EDEA70 /* sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22DE60C324C9DB0500EDEA70 /* sample.pdf */; };
 		8DAF12C3286705C539DA0126 /* Pods_BUET_CSE_Moodle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B0A742A4470508AE480FB5D /* Pods_BUET_CSE_Moodle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1501A612F418317189219684 /* Pods-BUET CSE Moodle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BUET CSE Moodle.debug.xcconfig"; path = "Target Support Files/Pods-BUET CSE Moodle/Pods-BUET CSE Moodle.debug.xcconfig"; sourceTree = "<group>"; };
+		225094C424C7690300AB5325 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
+		225094C624C76CB400AB5325 /* WeekDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDetails.swift; sourceTree = "<group>"; };
+		225094CC24C7946E00AB5325 /* ContentURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentURL.swift; sourceTree = "<group>"; };
 		2262CB6924C5E5AA00286609 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		2262CB6B24C5F47300286609 /* CourseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetails.swift; sourceTree = "<group>"; };
 		22726B3524C4A80E001499B8 /* BUET CSE Moodle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BUET CSE Moodle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +50,8 @@
 		22726B5624C4BFB8001499B8 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
 		22726B5924C4CDF4001499B8 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		22726B5B24C4DE27001499B8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		22DE60BA24C9D42A00EDEA70 /* QuickPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickPreviewController.swift; sourceTree = "<group>"; };
+		22DE60C324C9DB0500EDEA70 /* sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = sample.pdf; sourceTree = "<group>"; };
 		628068A5DDB80C14400283CB /* Pods-BUET CSE Moodle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BUET CSE Moodle.release.xcconfig"; path = "Target Support Files/Pods-BUET CSE Moodle/Pods-BUET CSE Moodle.release.xcconfig"; sourceTree = "<group>"; };
 		9B0A742A4470508AE480FB5D /* Pods_BUET_CSE_Moodle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BUET_CSE_Moodle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -86,11 +96,14 @@
 				22726B3E24C4A810001499B8 /* Assets.xcassets */,
 				22726B4324C4A810001499B8 /* LaunchScreen.storyboard */,
 				22726B4624C4A810001499B8 /* Info.plist */,
+				22DE60C324C9DB0500EDEA70 /* sample.pdf */,
 				22726B4024C4A810001499B8 /* Preview Content */,
 				22726B4C24C4A8BD001499B8 /* LoginView.swift */,
 				22726B4E24C4B96B001499B8 /* KeyboardResponder.swift */,
 				2262CB6B24C5F47300286609 /* CourseDetails.swift */,
 				22726B5B24C4DE27001499B8 /* HomeView.swift */,
+				225094C624C76CB400AB5325 /* WeekDetails.swift */,
+				22DE60BA24C9D42A00EDEA70 /* QuickPreviewController.swift */,
 			);
 			path = "BUET CSE Moodle";
 			sourceTree = "<group>";
@@ -110,6 +123,8 @@
 				22726B5424C4BE14001499B8 /* UserData.swift */,
 				22726B5624C4BFB8001499B8 /* FetchData.swift */,
 				2262CB6924C5E5AA00286609 /* Course.swift */,
+				225094C424C7690300AB5325 /* Week.swift */,
+				225094CC24C7946E00AB5325 /* ContentURL.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,7 +143,6 @@
 				1501A612F418317189219684 /* Pods-BUET CSE Moodle.debug.xcconfig */,
 				628068A5DDB80C14400283CB /* Pods-BUET CSE Moodle.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -200,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22DE60C424C9DB0500EDEA70 /* sample.pdf in Resources */,
 				22726B4524C4A810001499B8 /* LaunchScreen.storyboard in Resources */,
 				22726B4224C4A810001499B8 /* Preview Assets.xcassets in Resources */,
 				22726B3F24C4A810001499B8 /* Assets.xcassets in Resources */,
@@ -260,11 +275,15 @@
 				22726B5524C4BE14001499B8 /* UserData.swift in Sources */,
 				2262CB6A24C5E5AA00286609 /* Course.swift in Sources */,
 				22726B5724C4BFB8001499B8 /* FetchData.swift in Sources */,
+				225094C524C7690300AB5325 /* Week.swift in Sources */,
+				22DE60BB24C9D42A00EDEA70 /* QuickPreviewController.swift in Sources */,
 				22726B3924C4A80E001499B8 /* AppDelegate.swift in Sources */,
+				225094CD24C7946E00AB5325 /* ContentURL.swift in Sources */,
 				22726B3B24C4A80E001499B8 /* SceneDelegate.swift in Sources */,
 				22726B5A24C4CDF4001499B8 /* ActivityIndicator.swift in Sources */,
 				22726B4D24C4A8BD001499B8 /* LoginView.swift in Sources */,
 				22726B5324C4BD57001499B8 /* Session.swift in Sources */,
+				225094C724C76CB400AB5325 /* WeekDetails.swift in Sources */,
 				22726B4F24C4B96B001499B8 /* KeyboardResponder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
