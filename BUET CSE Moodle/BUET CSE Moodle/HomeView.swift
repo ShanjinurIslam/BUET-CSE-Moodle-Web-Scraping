@@ -14,7 +14,7 @@ struct HomeView: View {
     @ObservedObject var fetchData:FetchData = FetchData()
     
     init(){
-        UITableView.appearance().separatorStyle = .none
+        //UITableView.appearance().separatorStyle = .none
     }
     
     func onLoad(){
@@ -26,8 +26,8 @@ struct HomeView: View {
         List(userData.courses,id:\.id){course in
             NavigationLink(destination:CourseDetails(course:course)){
                 VStack(alignment:.leading){
-                    Text(String(course.id)).font(.headline)
-                    Text(course.title).font(.body)
+                    Text(course.title.split(separator: ":")[0]).foregroundColor(.gray).font(.headline)
+                    Text(course.title.split(separator: ":")[1].trimmingCharacters(in: .whitespaces)).font(.system(size: 24))
                 }
             }
             

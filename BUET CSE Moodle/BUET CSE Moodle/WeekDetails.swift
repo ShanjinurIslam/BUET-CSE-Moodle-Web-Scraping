@@ -40,6 +40,18 @@ struct WeekDetails: View {
                             }
                         }
                     }
+                    
+                    if(item.type=="url"){
+                        Button(action: {
+                            guard let url = URL(string: item.href) else { return }
+                            UIApplication.shared.open(url)
+                        }){
+                            Image(systemName: "arrowshape.turn.up.right")
+                            .imageScale(.medium)
+                            .foregroundColor(.yellow)
+                        }
+                    }
+                    
                 }
             }
         }
