@@ -42,6 +42,6 @@ app.use('', api)
 const server = http.createServer(app)
 server.listen(3000, '127.0.0.1', function() {
     server.close(function() {
-        server.listen(8080, '192.168.0.103')
+        server.listen(8080, '192.168.0.102')
     })
 })
