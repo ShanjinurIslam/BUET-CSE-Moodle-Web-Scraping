@@ -114,8 +114,9 @@ router.get('/courses/:id', (req, res) => {
             var temp = new Object()
             temp['week_name'] = header.innerHTML
             temp['resourses'] = []
-
-            const activities = sections[i].querySelectorAll('[class="activityinstance"]')
+			
+			//const activities = sections[i].querySelectorAll('[class="activityinstance"]')
+            const activities = sections[i].querySelectorAll('[class="activity "]')
 
             if (activities.length > 0) {
                 for (var j = 0; j < activities.length; j++) {
@@ -125,11 +126,16 @@ router.get('/courses/:id', (req, res) => {
                     } else {
                         const name = activities[j].querySelectorAll('[class="instancename"]')[0].innerHTML.split('<')[0]
                         const json = dom2json.toJSON(activities[j].querySelectorAll('a')[0])
-
+						const description = activities[j].querySelectorAll('p')[0]
+						
                         instance['name'] = name
                         instance['href'] = json['attributes'][2][1]
                         instance['type'] = instance['href'].split("/")[5]
                         temp['resourses'].push(instance)
+						if(description!=undefined){
+							desc = description.innerHTML
+							instance['desc'] = desc
+						}
                     }
                 }
             }
