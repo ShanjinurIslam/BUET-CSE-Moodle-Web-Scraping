@@ -115,7 +115,7 @@ router.get('/courses/:id', (req, res) => {
             temp['week_name'] = header.innerHTML
             temp['resourses'] = []
 			
-			//const activities = sections[i].querySelectorAll('[class="activityinstance"]')
+		//const activities = sections[i].querySelectorAll('[class="activityinstance"]')
             const activities = sections[i].querySelectorAll('[class="activity "]')
 
             if (activities.length > 0) {
@@ -132,10 +132,10 @@ router.get('/courses/:id', (req, res) => {
                         instance['href'] = json['attributes'][2][1]
                         instance['type'] = instance['href'].split("/")[5]
                         temp['resourses'].push(instance)
-						if(description!=undefined){
-							desc = description.innerHTML
-							instance['desc'] = desc
-						}
+			if(description!=undefined){
+				desc = description.innerHTML
+				instance['desc'] = desc
+			}
                     }
                 }
             }
@@ -146,6 +146,91 @@ router.get('/courses/:id', (req, res) => {
         object['weeks'] = arr
 
         return res.send(object)
+    })
+})
+
+router.get('/sitenews', (req, res) => {
+    //var cookie = request.cookie('MoodleSession=' + req.headers['sesskey']) // We don't need the sesskey to retrieve the site news! 
+
+    const options = {
+        url: 'https://cse.buet.ac.bd/moodle/mod/forum/view.php?id=114',
+        'method': "GET",
+        headers: {
+           // 'Cookie': cookie
+        }
+    };
+	 request(options, (error, response, body) => {
+        if (error) {
+            res.status(401).send({ message: "Session Expired" })
+        } else {
+            const dom = new JSDOM(body)
+			const pages = dom.window.document.querySelectorAll('div.paging')[0].querySelectorAll('a')
+		
+			var objects = new Object();
+			var sitenews = []
+			const news = dom.window.document.querySelectorAll('*[class^="discussion"]');
+			for(i=0;i<news.length;i++){
+				var object = new Object();
+				object['topic'] = news[i].querySelectorAll('[class="topic starter"]')[0].querySelectorAll('a')[0].innerHTML
+				object['id'] = news[i].querySelectorAll('[class="topic starter"]')[0].querySelectorAll('a')[0].href.split('=')[1]
+				object['author'] = news[i].querySelectorAll('[class="author"]')[0].querySelectorAll('a')[0].innerHTML
+				object['topic'] = news[i].querySelectorAll('[class="topic starter"]')[0].querySelectorAll('a')[0].innerHTML
+				object['time'] = news[i].querySelectorAll('[class="lastpost"]')[0].querySelectorAll('a')[1].innerHTML
+				
+				sitenews.push(object);
+			}
+			/*var objects = new Object(); // It will be used to fetch the other 3 pages.
+			for(i=0;i<pages.length-1;i++){
+				objects[i] = pages[i].href;
+			}*/
+			
+			objects['sitenews'] = sitenews;
+            res.status(200).send({ sitenews })
+        }
+    })
+})
+
+router.get('/sitenews/:id', (req, res) => {
+    //var cookie = request.cookie('MoodleSession=' + req.headers['sesskey']) //+ req.headers['sesskey'])
+
+    const options = {
+        url: 'https://cse.buet.ac.bd/moodle/mod/forum/discuss.php?d='+req.params.id,
+        'method': "GET",
+        headers: {
+           // 'Cookie': cookie
+        }
+    };
+	 request(options, (error, response, body) => {
+        if (error) {
+            res.status(401).send({ message: "Session Expired" })
+        } else {
+            const dom = new JSDOM(body)
+			const forumposts = dom.window.document.querySelectorAll('[class^="forumpost"]');
+			//console.log(forumposts.length);
+			var posts = [];
+			for(i=0;i<forumposts.length;i++){
+				var object = new Object();
+				object['title'] = forumposts[i].querySelectorAll('[class="subject"]')[0].innerHTML;
+				//console.log(object['title']);
+				object['author'] = forumposts[i].querySelectorAll('[class="author"] a')[0].innerHTML;
+				object['time'] = forumposts[i].querySelectorAll('[class="author"]')[0].innerHTML.split('-')[1];
+				object['desc'] = forumposts[i].querySelectorAll('[class="posting fullpost"]')[0].innerHTML;
+				var attachments = [];
+				const attach = forumposts[i].querySelectorAll('[class="attachments"] a');
+				if( attach!=undefined){
+					for(j=1;j<attach.length;j+=2){
+						var attachobject = new Object();
+						attachobject['title'] = attach[j].innerHTML;
+						attachobject['link'] = attach[j].href;
+						attachments.push(attachobject);
+					}
+				}
+				object['attachments'] = attachments;
+				posts.push(object);
+			}
+			
+            res.status(200).send({ posts })
+        }
     })
 })
 

@@ -12,22 +12,30 @@ Packages used in this project:
 
 API Documentation:
 
-POST /LOGIN
-BODY : username and password
-Returns: sesskey
+POST /LOGIN\
+BODY : username and password\
+Returns: sesskey\
 
-GET /Courses
-Header: sesskey
+GET /Courses\
+Header: sesskey\
 Returns: List of courses
 
-GET /courses/:id
-Header: sesskey
+GET /courses/:id\
+Header: sesskey\
 returns: Array of weeks
 
-GET /resource
-Header: Resource url,sesskey
+GET /sitenews/:id\
+Header: empty\
+returns: Array of site news
+
+GET /sitenews/:id\
+Header: empty\
+returns: details of site news
+
+GET /resource\
+Header: Resource url,sesskey\
 returns: ppt/pdf/file reponse
 
-GET /logout
-Header: sesskey
+GET /logout\
+Header: sesskey\
 returns: status code
