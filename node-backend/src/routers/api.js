@@ -115,7 +115,7 @@ router.get('/courses/:id', (req, res) => {
             temp['week_name'] = header.innerHTML
             temp['resourses'] = []
 			
-			//const activities = sections[i].querySelectorAll('[class="activityinstance"]')
+		//const activities = sections[i].querySelectorAll('[class="activityinstance"]')
             const activities = sections[i].querySelectorAll('[class="activity "]')
 
             if (activities.length > 0) {
@@ -132,10 +132,10 @@ router.get('/courses/:id', (req, res) => {
                         instance['href'] = json['attributes'][2][1]
                         instance['type'] = instance['href'].split("/")[5]
                         temp['resourses'].push(instance)
-						if(description!=undefined){
-							desc = description.innerHTML
-							instance['desc'] = desc
-						}
+			if(description!=undefined){
+				desc = description.innerHTML
+				instance['desc'] = desc
+			}
                     }
                 }
             }
